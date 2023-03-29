@@ -5,6 +5,7 @@ import ElementUI from 'element-ui';
 import axios from './utils/request'
 import 'element-ui/lib/theme-chalk/index.css';
 import store from './store/index'
+import 'lib-flexible/flexible'
 
 
 Vue.prototype.$axios = axios //全局可以使用axios这个库
