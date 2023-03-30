@@ -1,20 +1,26 @@
 <template>
-  <div class="container">
+  <div class="box">
     <!--头部-->
     <div class="header">
       <h1>员工学习与发展脉搏调查</h1>
       <section class="tips">
         <div class="first">
-          <img src="../assets/test-header-1.svg" alt="" />
-          <span>没有时间限制</span>
+          <div class="icon">
+            <img src="../assets/test-header-1.svg" alt="" />
+          </div>
+          <div class="tip-text"><span>没有时间限制</span></div>
         </div>
-        <div class="second">
-          <img src="../assets/test-header-2.svg" alt="" />
-          <span>请诚实回答</span>
+        <div class="first">
+          <div class="icon">
+            <img src="../assets/test-header-2.svg" alt="" />
+          </div>
+          <div class="tip-text"><span>请诚实回答</span></div>
         </div>
-        <div class="third">
-          <img src="../assets/test-header-3.svg" alt="" />
-          <span>尽量不要选择中立的答案</span>
+        <div class="first">
+          <div class="icon">
+            <img src="../assets/test-header-3.svg" alt="" />
+          </div>
+          <div class="tip-text"><span>尽量不要选择中立的答案</span></div>
         </div>
       </section>
     </div>
@@ -261,7 +267,283 @@
         </div>
       </fieldset>
     </div>
-
+    <!--用户信息-->
+    <div class="infomation">
+      <fieldset class="info">
+        <legend>
+          <span>您的工号：</span>
+        </legend>
+        <input class="info-input" type="text" placeholder="请输入您的工号" />
+      </fieldset>
+      <fieldset class="info">
+        <legend>
+          <span>您的姓名：</span>
+        </legend>
+        <input class="info-input" type="text" placeholder="请输入您的姓名" />
+      </fieldset>
+      <fieldset class="info">
+        <legend>
+          <span>您的性别：</span>
+        </legend>
+        <div class="info-option">
+          <div class="left-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">男</div>
+            </div>
+          </div>
+          <div class="right-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">
+                女&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="info">
+        <legend>
+          <span>您的年龄：</span>
+        </legend>
+        <div class="info-option">
+          <div class="left-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">20岁及以下</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">21-25岁</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">26-30岁</div>
+            </div>
+          </div>
+          <div class="right-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">31-35岁</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">36-40岁</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">41岁及以上</div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="info">
+        <legend>
+          <span>您的学历：</span>
+        </legend>
+        <div class="info-option">
+          <div class="left-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">小学及以下</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">初中</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">高中/职高</div>
+            </div>
+          </div>
+          <div class="right-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">大专</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">本科</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">硕士及以上</div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="info">
+        <legend>
+          <span>您的管理职：</span>
+        </legend>
+        <div class="info-option">
+          <div class="left-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">无</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">线组级</div>
+            </div>
+          </div>
+          <div class="right-option">
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">课理级</div>
+            </div>
+            <div class="option">
+              <span>
+                <label class="container">
+                  <input checked="checked" type="checkbox" />
+                  <div
+                    class="checkmark checkmark4"
+                    style="height: 0.8rem; width: 0.8rem"
+                  ></div>
+                </label>
+              </span>
+              <div class="text-option">经理级以上</div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
     <!--底部-->
     <div class="footer"><button class="animated-button">提 交</button></div>
   </div>
@@ -276,61 +558,61 @@ export default {};
   margin: 0;
   padding: 0;
 }
-.container {
-  width: 100%;
-  height: 100%;
-}
+
 /* 头部样式 */
 .header {
-  height: 400px;
+  height: 8rem;
   background-color: #33a474;
 }
 
 h1 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #fff;
-  line-height: 150px;
+  line-height: 2.5rem;
   text-align: center;
 }
 .tips {
-  height: 200px;
+  height: 5rem;
   /* background-color: pink; */
 }
 .first,
 .second,
 .third {
-  height: 50px;
-  width: 8rem;
+  display: flex;
+  height: 1.1rem;
+  width: 9rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 0.6rem;
 }
 img {
-  height: 30px;
-  width: 30px;
+  height: 0.9rem;
+  width: 0.9rem;
   margin-left: 10px;
+  padding-top: 0.1rem;
 }
-.tips span {
+.tip-text {
   line-height: 0.6rem;
   font-size: 0.5rem;
   color: #576071;
   margin-left: 10px;
+  padding-top: 0.3rem;
 }
 /* 内容样式 */
 .question {
   text-align: center;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   border-top: 0;
   border-left: 0;
   border-right: 0;
   border-color: #e3e9f2;
 }
 legend {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: #576071;
-  line-height: 1.8;
+  line-height: 1.6rem;
   text-align: center;
   white-space: normal;
   padding-top: 20px;
@@ -344,13 +626,13 @@ legend {
 }
 .text-green {
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #33a474;
 }
 .text-purple {
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #88619a;
   /* margin-left: 4rem; */
@@ -367,9 +649,6 @@ legend {
   width: 9rem;
   justify-content: space-between;
 }
-.radios span {
-}
-
 /* Hide the default checkbox */
 .container input {
   opacity: 0;
@@ -444,6 +723,15 @@ legend {
   border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
+.container .checkmark4:after {
+  left: 0.3rem;
+  top: 0.1rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid seagreen;
+  border-width: 0 0.1rem 0.1rem 0;
+  transform: rotate(45deg);
+}
 /*输入框样式 */
 .textarea-container {
   position: relative;
@@ -466,52 +754,42 @@ legend {
 }
 /*用户信息 */
 .info {
+  display: flex;
   text-align: center;
-  margin-top: 5px;
+  padding: 10px;
   border-top: 0;
   border-left: 0;
   border-right: 0;
   border-color: #e3e9f2;
 }
-.info input {
+.info-input {
+  display: flex;
   width: 9rem;
   padding: 10px;
   border: 2px solid #88619a;
   border-radius: 4px;
   font-size: 16px;
-  resize: none;
-  margin: 20px 0;
+  margin: 0 auto;
+  /* resize: none; */
+}
+.info-option {
+  display: flex;
+  width: 9rem;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 .text-option {
-  font-size: 1.5em;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #33a474;
-  /* margin-right: 20px; */
-}
-.left-option {
-  width: 20%;
-  margin-left: 35%;
-}
-.right-option {
-  width: 20%;
-  margin-left: 55%;
-  position: relative;
-  margin-top: -120px;
+  /* vertical-align: bottom; */
+  padding-top: 0.8rem;
+  padding-left: 0.3rem;
 }
 .option {
   display: flex;
-  justify-content: left;
-  /* align-items: center; */
-  /* text-align: center; */
-  /* margin-left: 45%; */
 }
 
-.option-radios {
-  display: flex;
-  /* margin-bottom: 20px; */
-  /* align-items: center; */
-  text-align: left;
-}
 /* 提交按钮 */
 .footer {
   display: flex;
