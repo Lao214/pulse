@@ -78,9 +78,192 @@
           <div class="text-purple">完全不同意</div>
         </div>
       </fieldset>
+      <fieldset class="question">
+        <legend>
+          <span>我认为我所在部门的工作任务分配是合理的。</span>
+        </legend>
+        <div class="group_option">
+          <div class="radios">
+            <span>
+              <label class="container">
+                <input type="radio" value="-2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="-1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="0" />
+                <div
+                  class="checkmark checkmark3"
+                  style="height: 1.25em; width: 1.25em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+          </div>
+        </div>
+        <div class="captions">
+          <div class="text-green">完全同意</div>
+          <div class="text-purple">完全不同意</div>
+        </div>
+      </fieldset>
+      <fieldset class="question">
+        <legend>
+          <span>在公司内，我目前的工作比较适合我。</span>
+        </legend>
+        <div class="group_option">
+          <div class="radios">
+            <span>
+              <label class="container">
+                <input type="radio" value="-2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="-1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="0" />
+                <div
+                  class="checkmark checkmark3"
+                  style="height: 1.25em; width: 1.25em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+          </div>
+        </div>
+        <div class="captions">
+          <div class="text-green">完全同意</div>
+          <div class="text-purple">完全不同意</div>
+        </div>
+      </fieldset>
+      <fieldset class="question">
+        <legend>
+          <span>我很清楚我所做的工作对公司的价值和意义。</span>
+        </legend>
+        <div class="group_option">
+          <div class="radios">
+            <span>
+              <label class="container">
+                <input type="radio" value="-2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="-1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="0" />
+                <div
+                  class="checkmark checkmark3"
+                  style="height: 1.25em; width: 1.25em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="1" />
+                <div
+                  class="checkmark checkmark2"
+                  style="height: 1.75em; width: 1.75em"
+                ></div>
+              </label>
+            </span>
+            <span>
+              <label class="container">
+                <input type="radio" value="2" />
+                <div
+                  class="checkmark"
+                  style="height: 2.5em; width: 2.5em"
+                ></div>
+              </label>
+            </span>
+          </div>
+        </div>
+        <div class="captions">
+          <div class="text-green">完全同意</div>
+          <div class="text-purple">完全不同意</div>
+        </div>
+      </fieldset>
+      <fieldset class="question">
+        <legend>
+          <span>请写出一个您期望公司改善的问题点及建议:</span>
+        </legend>
+        <div class="textarea-container">
+          <textarea class="textarea" placeholder="请输入文本"></textarea>
+        </div>
+      </fieldset>
     </div>
+
     <!--底部-->
-    <div class="footer"></div>
+    <div class="footer"><button class="animated-button">提 交</button></div>
   </div>
 </template>
 
@@ -152,7 +335,13 @@ legend {
   white-space: normal;
   padding-top: 20px;
 }
-
+.captions {
+  display: flex;
+  align-items: center;
+  width: 10rem;
+  margin: 0 auto;
+  justify-content: space-between;
+}
 .text-green {
   display: inline-block;
   font-size: 0.6rem;
@@ -171,14 +360,14 @@ legend {
 .group_option {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 .radios {
   display: flex;
   align-items: center;
+  width: 9rem;
+  justify-content: space-between;
 }
 .radios span {
-  margin-right: 0.5rem;
 }
 
 /* Hide the default checkbox */
@@ -228,12 +417,12 @@ legend {
 
 /* 勾样式 */
 .container .checkmark:after {
-  left: 0.6rem;
-  top: 10px;
-  width: 0.6em;
+  left: 0.5rem;
+  top: 0.1rem;
+  width: 0.5rem;
   height: 1rem;
   border: solid seagreen;
-  border-width: 0 0.15em 0.15em 0;
+  border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
 
@@ -243,7 +432,7 @@ legend {
   width: 0.4em;
   height: 0.8em;
   border: solid seagreen;
-  border-width: 0 0.15em 0.15em 0;
+  border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
 .container .checkmark3::after {
@@ -252,7 +441,129 @@ legend {
   width: 0.3em;
   height: 0.6em;
   border: solid seagreen;
-  border-width: 0 0.15em 0.15em 0;
+  border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
+}
+/*输入框样式 */
+.textarea-container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.textarea {
+  width: 9rem;
+  padding: 10px;
+  border: 2px solid #88619a;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  height: 150px;
+}
+
+.textarea:focus,
+.textarea:hover {
+  border-color: #777;
+}
+/*用户信息 */
+.info {
+  text-align: center;
+  margin-top: 5px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: #e3e9f2;
+}
+.info input {
+  width: 9rem;
+  padding: 10px;
+  border: 2px solid #88619a;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  margin: 20px 0;
+}
+.text-option {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #33a474;
+  /* margin-right: 20px; */
+}
+.left-option {
+  width: 20%;
+  margin-left: 35%;
+}
+.right-option {
+  width: 20%;
+  margin-left: 55%;
+  position: relative;
+  margin-top: -120px;
+}
+.option {
+  display: flex;
+  justify-content: left;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* margin-left: 45%; */
+}
+
+.option-radios {
+  display: flex;
+  /* margin-bottom: 20px; */
+  /* align-items: center; */
+  text-align: left;
+}
+/* 提交按钮 */
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.animated-button {
+  background-color: #88619a;
+  border: none;
+  color: #ffffff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 5px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.animated-button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.animated-button:hover:after {
+  width: 210px;
+  height: 200px;
+  opacity: 1;
+}
+
+.animated-button:focus {
+  outline: none;
+}
+
+.animated-button:active {
+  transform: translateY(2px);
+  box-shadow: none;
 }
 </style>
