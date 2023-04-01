@@ -308,7 +308,14 @@
 
     </div>
     <!--底部-->
-    <div class="footer"><button class="animated-button" @click="sumbit()">提 交</button></div>
+    <div class="footer">
+      <button v-show="!loadingFlag" class="animated-button" @click="sumbit()">提 交</button>
+      <div v-show="loadingFlag" class="spinner">
+        <svg viewBox="25 25 50 50" class="circular">
+          <circle stroke-miterlimit="10" stroke-width="3" fill="none" r="20" cy="50" cx="50" class="path"></circle>
+        </svg>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -321,6 +328,7 @@ export default {
   data() {
     return {
       radio: true,
+      loadingFlag: false  ,
       scheduleDetails: {},
       questions: [],
       questionAndOptions:[],
@@ -340,7 +348,7 @@ export default {
   created() {
     this.getQuestion()
     // 计时器，完成时间
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.completeTime++
       this.answerForm.completeTime =  this.completeTime
     }, 1000)
@@ -687,24 +695,30 @@ export default {
       }
     },
     sumbit() {
+      this.loadingFlag = true
       if(this.answer.length != this.questionAndOptions.length) {
         this.$message({
           type: 'warning',
           message: '您还有问题未填写'
         })
+        this.loadingFlag = false
       } else {
         this.answerForm['answerData'] = JSON.stringify(this.answer)
         this.answerForm['tagsScore'] = JSON.stringify(this.answerTags)
+        this.answerForm['openAnswer'] = this.scheduleDetails.openQuestion + ':' + this.openQuestion
+        answerApi.addAnswer(this.answerForm).then(res => {
+          if (res.data.code === 200) {
+            this.$message({
+              type: 'success',
+              message: '提交成功'
+            })
+            this.loadingFlag = false
+            clearInterval(this.timer)
+            this.timer = null
+            this.$emit('sumbit')
+          }
+        })
       }
-      this.answerForm['openAnswer'] = this.scheduleDetails.openQuestion + ':' + this.openQuestion
-      answerApi.addAnswer(this.answerForm).then(res => {
-        if(res.data.code === 200) {
-          this.$message({
-            type: 'success',
-            message: '提交成功'
-          })
-        }
-      })
     },
     formatDate() {
       var date = new Date()
@@ -1019,5 +1033,81 @@ legend {
 .animated-button:active {
   transform: translateY(2px);
   box-shadow: none;
+}
+
+.spinner {
+  --red: #33a474;
+  --blue: #88619a;
+  --green: #008744;
+  --yellow: #ffa700;
+  position: relative;
+  width: 60px;
+}
+
+.spinner:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.circular {
+  animation: rotate73451 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash0175 1.5s ease-in-out infinite, color7123 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate73451 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash0175 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color7123 {
+  100%, 0% {
+    stroke: var(--red);
+  }
+
+  40% {
+    stroke: var(--blue);
+  }
+
+  66% {
+    stroke: var(--green);
+  }
+
+  80%, 90% {
+    stroke: var(--yellow);
+  }
 }
 </style>
