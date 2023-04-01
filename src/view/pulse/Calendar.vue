@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-button class="el-button--goon">添加大范围排程</el-button>
+    <el-button class="el-button--goon" @click="addRangeSchedule()">添加大范围排程</el-button>
     <el-divider></el-divider>
     <el-calendar>
       <template slot="dateCell" slot-scope="{date, data}">
@@ -53,6 +53,44 @@
       </div>
     </el-dialog>
 
+    <el-dialog title="添加范围排程" :close-on-click-modal="false" :visible.sync="dialogVisibleRange" width="30%" style="color:aquamarine;">
+      <el-form :model="rangeForm">
+        <el-form-item label="当日标题:" :label-width="formLabelWidth">
+          <div class="inputGroup">
+            <input v-model="rangeForm.title" type="text" required="" autocomplete="off">
+          </div>
+        </el-form-item>
+        <el-form-item label="当日首页语:" :label-width="formLabelWidth">
+          <div class="inputGroup">
+            <input v-model="rangeForm.notes" type="text" required="" autocomplete="off">
+          </div>
+        </el-form-item>
+        <el-form-item label="开放式问题:" :label-width="formLabelWidth">
+          <div class="inputGroup">
+            <input v-model="rangeForm.openQuestion" type="text" required="" autocomplete="off">
+          </div>
+        </el-form-item>
+        <el-form-item label="问题组规则:" :label-width="formLabelWidth">
+          <el-select @change="changeRange" v-model="rangeForm.groupId" placeholder="请选择">
+            <el-option v-for="(item,index) in options" :key="item.id" :label="item.groupTitle" :value="item.id" />
+          </el-select>
+        </el-form-item>
+        <el-form-item v-if="isRandomRange" label="选择主题:" :label-width="formLabelWidth">
+          <el-select v-model="rangeForm.theme" placeholder="请选择">
+            <el-option v-for="(item,index) in themes" :key="index" :label="item" :value="item" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="选择范围:" :label-width="formLabelWidth">
+          <el-date-picker v-model="rangeForm.range" type="datetimerange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+          </el-date-picker>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button class="el-button--goon" @click="dialogVisibleRange = false">取 消</el-button>
+        <el-button class="el-button--goon" type="primary" @click="addRange()">确 定</el-button>
+      </span>
+    </el-dialog>
+
     <el-dialog title="添加排程" :close-on-click-modal="false" :visible.sync="dialogVisible" width="30%" style="color:aquamarine;">
       <el-form :model="scheduleForm">
         <el-form-item label="排程日期:" :label-width="formLabelWidth">
@@ -86,7 +124,7 @@
           </el-select>
         </el-form-item>
         <el-form-item v-if="isRandom" label="选择主题:" :label-width="formLabelWidth">
-          <el-select v-model="scheduleDetailsAll.theme" placeholder="请选择">
+          <el-select v-model="scheduleForm.theme" placeholder="请选择">
             <el-option v-for="(item,index) in themes" :key="index" :label="item" :value="item" />
           </el-select>
         </el-form-item>
@@ -174,6 +212,8 @@ export default {
       dialogVisible: false,
       // 查看排程
       dialogVisibleSchedule: false,
+      // 添加大范围排程
+      dialogVisibleRange: false,
       // 排程细节
       scheduleDetailsAll: {},
       scheduleForm: {},
@@ -184,8 +224,10 @@ export default {
       themes: [],
       scheduleDetails: {},
       questionDetails: [],
+      rangeForm: {},
       // 是否用随机组
       isRandom: false,
+      isRandomRange: false,
       rqi:[],
       rqineirong:{},
       // 遮罩层
@@ -274,6 +316,51 @@ export default {
     this.getQuestionAsOption()
   },
   methods: {
+    addRangeSchedule() {
+      this.dialogVisibleRange = true
+    },
+    addRange() {
+      if(!this.rangeForm.range) {
+        this.$message({
+          type: 'warning',
+          message: '请选择范围'
+        })
+        return
+      }
+      if(!this.rangeForm.groupId) {
+        this.$message({
+          type: 'warning',
+          message: '请选择问题组规则'
+        })
+        return
+      }
+      if(!this.rangeForm.title) {
+        this.$message({
+          type: 'warning',
+          message: '请输入标题'
+        })
+        return
+      }
+      if(!this.rangeForm.openQuestion) {
+        this.$message({
+          type: 'warning',
+          message: '请输入开放式问题'
+        })
+        return
+      }
+      this.rangeForm.beginDate = this.rangeForm.range[0]
+      this.rangeForm.endDate = this.rangeForm.range[1]
+      console.log(this.rangeForm)
+      scheduleApi.addScheduleBatch(this.rangeForm).then(res => {
+        if(res.data.code === 200) {
+          this.$message({
+            type: 'success',
+            message: '添加成功'
+          })
+          this.dialogVisibleRange = false
+        }
+      })
+    },
     getQuestionAsOption() {
       questionApi.getQuestionAsOption().then(res => {
         if(res.data.code === 200) {
@@ -281,6 +368,17 @@ export default {
           // console.log(this.themes)
         }
       })
+    },
+    changeRange(e) {
+      this.options.forEach(element => {
+        if(e === element.id) {
+          this.rangeForm.formula = element.formula
+          this.rangeForm.groupType = element.type
+        }
+      })
+      if(this.rangeForm.groupType === 0) {
+        this.isRandomRange = true
+      }
     },
     change(e) {
       this.options.forEach(element => {
@@ -292,7 +390,6 @@ export default {
       if(this.scheduleForm.groupType === 0) {
         this.isRandom = true
       }
-      // console.log(this.scheduleForm)
     },
     getOptions(){
       groupApi.getFormDataListPage(1,100,null).then(res => {
@@ -314,7 +411,15 @@ export default {
       })
     },
     editSchedule() {
-      this.dialogVisibleSchedule = false
+      scheduleApi.updateSchedule(this.scheduleDetailsAll).then(res => {
+        if(res.data.code === 200) {
+          this.dialogVisibleSchedule = false
+          this.$message({
+            type: 'success',
+            message: '修改成功'
+          })
+        }
+      })
     },
     viewSchedule() {
       this.scheduleForm = {}

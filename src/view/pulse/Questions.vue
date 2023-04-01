@@ -270,7 +270,7 @@ export default {
         if(res.data.code === 200) {
           this.$message({
             type: 'success',
-            message: '添加成功'
+            message: '修改成功'
           })
         }
         this.getform(1,10)

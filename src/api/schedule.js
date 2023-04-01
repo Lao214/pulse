@@ -8,6 +8,13 @@ export default {
       data: bSchedule
     })
   },
+  updateSchedule(bSchedule) {
+    return request({
+      url: '/pulse/schedule/updateSchedule',
+      method: 'post',
+      data: bSchedule
+    })
+  },
   queryScheduleListAll() {
     return request({
       url: '/pulse/schedule/queryScheduleListAll',
@@ -17,6 +24,19 @@ export default {
   querySchedule(id) {
     return request({
       url: '/pulse/schedule/querySchedule/' + id,
+      method: 'get'
+    })
+  },
+  addScheduleBatch(rangeForm) {
+    return request({
+      url: '/pulse/schedule/addScheduleBatch',
+      method: 'post',
+      data: rangeForm
+    })
+  },
+  getQuestionBySchedule(date) {
+    return request({
+      url: '/pulse/answer/getQuestionBySchedule/' + date,
       method: 'get'
     })
   }

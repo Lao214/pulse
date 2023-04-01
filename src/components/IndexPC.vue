@@ -25,7 +25,7 @@
 
     <!--问题-->
     <div class="content">
-      <fieldset class="question">
+      <fieldset v-for="(item,index) in questions" :key="index" class="question">
         <legend>
           <span>我很清楚我的工作职责。</span>
         </legend>
@@ -34,7 +34,7 @@
           <div class="radios">
             <span>
               <label class="container">
-                <input type="radio" value="-2" />
+                <input type="checkbox" value="-2" />
                 <div
                   class="checkmark"
                   style="height: 2.5em; width: 2.5em"
@@ -43,7 +43,7 @@
             </span>
             <span>
               <label class="container">
-                <input type="radio" value="-1" />
+                <input type="checkbox" value="-1" />
                 <div
                   class="checkmark checkmark2"
                   style="height: 1.75em; width: 1.75em"
@@ -52,7 +52,7 @@
             </span>
             <span>
               <label class="container">
-                <input type="radio" value="0" />
+                <input type="checkbox" value="0" />
                 <div
                   class="checkmark checkmark3"
                   style="height: 1.25em; width: 1.25em"
@@ -61,7 +61,7 @@
             </span>
             <span>
               <label class="container">
-                <input type="radio" value="1" />
+                <input type="checkbox" value="1" />
                 <div
                   class="checkmark checkmark2"
                   style="height: 1.75em; width: 1.75em"
@@ -70,7 +70,7 @@
             </span>
             <span>
               <label class="container">
-                <input type="radio" value="2" />
+                <input type="checkbox" value="2" />
                 <div
                   class="checkmark"
                   style="height: 2.5em; width: 2.5em"
@@ -569,11 +569,43 @@
 </template>
 
 <script>
-import index from "@/view/index.vue";
+import scheduleApi from '@/api/schedule';
 export default {
-  components: { index },
-};
+  data() {
+    return {
+      radio: false,
+      scheduleDetails: {},
+      questions: []
+    }
+  },
+  created() {
+    this.getQuestion()
+  },
+  methods: {
+    getQuestion() {
+      var date = this.formatDate()
+      console.log(date)
+      scheduleApi.getQuestionBySchedule(date).then(res => {
+        if(res.data.code === 200) {
+          this.scheduleDetails = res.data.data.question
+          console.log(this.scheduleDetails)
+          this.questions = JSON.parse(this.scheduleDetails.details)
+        }
+      })
+    },
+    formatDate() {
+      var date = new Date()
+      var y = date.getFullYear();  
+      var m = date.getMonth() + 1;  
+      m = m < 10 ? '0' + m : m;  
+      var d = date.getDate();  
+      d = d < 10 ? ('0' + d) : d;  
+      return y + '-' + m + '-' + d;  
+    }
+  }
+}
 </script>
+
 
 <style scoped>
 * {
