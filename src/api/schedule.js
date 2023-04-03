@@ -39,5 +39,11 @@ export default {
       url: '/pulse/answer/getQuestionBySchedule/' + date,
       method: 'get'
     })
+  },
+  finishSchedule(date) {
+    return request({
+      url: '/pulse/schedule/finishSchedule/' + date,
+      method: 'get'
+    })
   }
 }

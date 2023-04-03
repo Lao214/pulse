@@ -15,6 +15,11 @@ const router = new VueRouter({
           component: () => import("../view/build/index.vue")
         },
         {
+          path: "/index",
+          name:'index',
+          component: () => import("../view/index.vue")
+        },
+        {
           path: "/build/pcm",
           name:'build',
           component: () => import("../view/build/index.vue")

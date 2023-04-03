@@ -191,6 +191,7 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button class="el-button--goon" @click="dialogVisibleSchedule = false">关 闭</el-button>
+        <el-button class="el-button--goon" @click="finishSchedule(scheduleDetailsAll.scheduleDate)">设 为 完 成</el-button>
         <el-button class="el-button--goon" v-if="scheduleDetailsAll.isFinished === 0" type="primary" @click="editSchedule()">修 改 并 确 定</el-button>
       </span>
     </el-dialog>
@@ -199,9 +200,9 @@
 </template>
 
 <script>
-import { getSpecialDay, deleteSpecialDay, add, update } from "@/api/holiday";
-import scheduleApi from "@/api/schedule";
-import groupApi from "@/api/group";
+import { getSpecialDay, deleteSpecialDay, add, update } from "@/api/holiday"
+import scheduleApi from "@/api/schedule"
+import groupApi from "@/api/group"
 import questionApi from "@/api/questions"
 
 export default {
@@ -318,6 +319,16 @@ export default {
   methods: {
     addRangeSchedule() {
       this.dialogVisibleRange = true
+    },
+    finishSchedule(date) {
+      scheduleApi.finishSchedule(date).then(res => {
+        if(res.data.code === 200) {
+          this.$message({
+            type: 'success',
+            message: '修改成功'
+          })
+        }
+      })
     },
     addRange() {
       if(!this.rangeForm.range) {
