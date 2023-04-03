@@ -549,6 +549,10 @@ export default {
           }
         }
       }
+      document.getElementById((index) + '-' + radioIndex).scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      })
     },
     chooseSex(sex) {
       this.answerForm['sex'] = sex
@@ -931,8 +935,16 @@ legend {
   left: 0;
   height: 2em;
   width: 2em;
-  border: 2px solid green;
+  border: 2px solid rgb(118, 172, 118);
   border-radius: 50%;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 rgb(118, 172, 118);
+}
+
+.checkmarks:hover {
+  /* background-color: #008744; */
+  color: white;
+  box-shadow: inset 0 -100px 0 0 rgb(118, 172, 118);
 }
 
 /* When the checkbox is checked, add a blue background */

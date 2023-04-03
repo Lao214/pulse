@@ -12,7 +12,7 @@ const router = new VueRouter({
         {
           path: "/",
           name:'index',
-          component: () => import("../view/index.vue")
+          component: () => import("../view/build/index.vue")
         },
         {
           path: "/build/pcm",

@@ -539,6 +539,11 @@ export default {
           }
         }
       }
+      document.getElementById((index) + '-' + radioIndex).scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      })
+      // document.getElementById((index+1) + '-' + radioIndex).scrollIntoView()
       // 取消选择 
       // if(this.questionAndOptions[index]['radio'][radioIndex]) {
         // document.getElementById(index + '-' + radioIndex).classList.replace("checkmark","checkmarks")
@@ -876,8 +881,15 @@ legend {
   left: 0;
   height: 0.6rem;
   width: 2em;
-  border: 4px solid green;
+  border: 4px solid rgb(118, 172, 118);
   border-radius: 50%;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 rgb(118, 172, 118);
+}
+.checkmarks:hover {
+  /* background-color: #008744; */
+  color: white;
+  box-shadow: inset 0 -100px 0 0 rgb(118, 172, 118);
 }
 
 /* When the checkbox is checked, add a blue background */
