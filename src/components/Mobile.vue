@@ -328,12 +328,12 @@ export default {
   data() {
     return {
       radio: true,
-      loadingFlag: false  ,
+      loadingFlag: false,
       scheduleDetails: {},
       questions: [],
       questionAndOptions:[],
-      answer: [],
-      answerTags: [],
+      answer: {},
+      answerTags: {},
       ques: {},
       tags: [],
       answerForm: {},
@@ -342,7 +342,7 @@ export default {
       jobNo: '',
       completeTime: 0,
       source: '',
-      appId: "GSZDIv6rmA8d2LujhLa30g2",
+      appId: "GSZDIv6rmA8d2LujhLa30g2"
     }
   },
   created() {
@@ -525,8 +525,10 @@ export default {
     choose(index,radioIndex,row) {
       document.getElementById(index + '-' + radioIndex).classList.replace("checkmarks","checkmark")
       this.questionAndOptions[index]['radio'][radioIndex] = !this.questionAndOptions[index]['radio'][radioIndex]
-      this.answer.push(row.text +':' + (radioIndex + 1))
-      this.answerTags.push(this.module[radioIndex] + '-' + this.tags[radioIndex] + '-' + (radioIndex + 1))
+      this.answer[row.text] = (radioIndex + 1)
+      this.answerTags['第' + (index + 1) + '题' + '-' + this.module[radioIndex] + '-' + this.tags[radioIndex]] = (radioIndex + 1)
+      this.questionAndOptions[index]['isChecked'] = true
+      console.log(this.questionAndOptions)
       console.log(this.answer)
       console.log(this.answerTags)
       if(!this.questionAndOptions[index]['radio'][radioIndex]) {
@@ -537,9 +539,10 @@ export default {
           }
         }
       }
-      if(this.questionAndOptions[index]['radio'][radioIndex]) {
-        document.getElementById(index + '-' + radioIndex).classList.replace("checkmark","checkmarks")
-      }
+      // 取消选择 
+      // if(this.questionAndOptions[index]['radio'][radioIndex]) {
+        // document.getElementById(index + '-' + radioIndex).classList.replace("checkmark","checkmarks")
+      // }
     },
     chooseSex(sex) {
       this.answerForm['sex'] = sex
@@ -696,13 +699,23 @@ export default {
     },
     sumbit() {
       this.loadingFlag = true
-      if(this.answer.length != this.questionAndOptions.length) {
+      if(!this.answerForm.jobNo) {
         this.$message({
           type: 'warning',
-          message: '您还有问题未填写'
+          message: '请填写工号'
         })
         this.loadingFlag = false
       } else {
+        for(var i = 0; i < this.questionAndOptions.length; i++) {
+          if(!this.questionAndOptions[i].isChecked) {
+            this.$message({
+              type: 'warning',
+              message: '第' + (i+1) + '题您还没选择答案，请选择答案'
+            })
+            this.loadingFlag = false
+            return
+          }
+        }
         this.answerForm['answerData'] = JSON.stringify(this.answer)
         this.answerForm['tagsScore'] = JSON.stringify(this.answerTags)
         this.answerForm['openAnswer'] = this.scheduleDetails.openQuestion + ':' + this.openQuestion
