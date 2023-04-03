@@ -69,7 +69,7 @@
 
       <fieldset class="question">
         <legend>
-          <span>请写出一个您期望公司改善的问题点及建议:</span>
+          <span>{{ scheduleDetails.openQuestion }}：</span>
         </legend>
         <div class="textarea-container">
           <textarea  v-model="openQuestion" class="textarea" placeholder="感谢您的填写🙏"></textarea>
