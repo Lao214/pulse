@@ -23,13 +23,13 @@
           <div class="icon">
             <img src="../assets/test-header-2.svg" alt="" />
           </div>
-          <div class="tip-text"><span>请诚实回答</span></div>
+          <div class="tip-text"><span>答案无对错之分</span></div>
         </div>
         <div class="first">
           <div class="icon">
             <img src="../assets/test-header-3.svg" alt="" />
           </div>
-          <div class="tip-text"><span>尽量不要选择中立的答案</span></div>
+          <div class="tip-text"><span>无隐私泄漏风险</span></div>
         </div>
       </section>
     </div>
@@ -55,8 +55,7 @@
                 />
                 <div
                   :id="index + '-' + '0'"
-                  class="checkmarks"
-                  style="height: 2.5em; width: 2.5em"
+                  class="checkmarks checkmark-1"
                 ></div>
               </label>
             </span>
@@ -70,8 +69,7 @@
                 />
                 <div
                   :id="index + '-' + '1'"
-                  class="checkmarks checkmark2"
-                  style="height: 1.75em; width: 1.75em"
+                  class="checkmarks checkmark-2"
                 ></div>
               </label>
             </span>
@@ -85,8 +83,7 @@
                 />
                 <div
                   :id="index + '-' + '2'"
-                  class="checkmarks checkmark3"
-                  style="height: 1.25em; width: 1.25em"
+                  class="checkmarks checkmark-3"
                 ></div>
               </label>
             </span>
@@ -100,8 +97,7 @@
                 />
                 <div
                   :id="index + '-' + '3'"
-                  class="checkmarks checkmark2"
-                  style="height: 1.75em; width: 1.75em"
+                  class="checkmarks checkmark-4"
                 ></div>
               </label>
             </span>
@@ -115,8 +111,7 @@
                 />
                 <div
                   :id="index + '-' + '4'"
-                  class="checkmarks"
-                  style="height: 2.5em; width: 2.5em"
+                  class="checkmarks checkmark-5"
                 ></div>
               </label>
             </span>
@@ -1186,7 +1181,7 @@ export default {
 /* 头部样式 */
 .header {
   height: 8rem;
-  background-color: #33a474;
+  background-color: #576cbc;
 }
 .tips {
   height: 5rem;
@@ -1244,13 +1239,13 @@ legend {
   font-size: 0.5rem;
   margin-left: 9px;
   font-weight: 600;
-  color: #33a474;
+  color: #19376d;
 }
 .text-purple {
   display: inline-block;
   font-size: 0.5rem;
   font-weight: 600;
-  color: #88619a;
+  color: #576cbc;
   margin-right: 9px;
   /* margin-left: 4rem; */
   /* margin-left: 210px; */
@@ -1289,8 +1284,8 @@ legend {
   top: 0;
   left: 0;
   height: 0.6rem;
-  width: 2em;
-  border: 4px solid green;
+  width: 0.6rem;
+  border: 4px solid #88619a;
   border-radius: 50%;
 }
 
@@ -1299,18 +1294,58 @@ legend {
   position: relative;
   top: 0;
   left: 0;
-  height: 0.6rem;
-  width: 2em;
-  border: 4px solid rgb(118, 172, 118);
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 4px solid #88619a;
   border-radius: 50%;
   transition: ease-out 0.5s;
-  box-shadow: inset 0 0 0 0 rgb(118, 172, 118);
+  box-shadow: inset 0 0 0 0 #88619a;
 }
-.checkmarks:hover {
-  /* background-color: #008744; */
+.checkmark-1,
+.checkmark-2 {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 4px solid #19376d;
+  border-radius: 50%;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 #19376d;
+}
+.checkmark-3 {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 4px solid #a5d7e8;
+  border-radius: 50%;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 #a5d7e8;
+}
+
+.checkmark-4,
+.checkmark-5 {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 4px solid #576cbc;
+  border-radius: 50%;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 #576cbc;
+}
+
+/* .checkmarks:hover {
+  background-color: #008744;
   color: white;
   box-shadow: inset 0 -100px 0 0 rgb(118, 172, 118);
-}
+} */
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
@@ -1335,12 +1370,12 @@ legend {
   top: 0.1rem;
   width: 0.5rem;
   height: 0.9rem;
-  border: solid seagreen;
+  border: solid #576071;
   border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
 
-.container .checkmark2:after {
+/* .container .checkmark-2:after {
   left: 0.4rem;
   top: 0.3em;
   width: 0.4em;
@@ -1349,7 +1384,7 @@ legend {
   border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
-.container .checkmark3::after {
+.container .checkmark-3::after {
   left: 0.25rem;
   top: 0.2em;
   width: 0.3em;
@@ -1357,13 +1392,13 @@ legend {
   border: solid seagreen;
   border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
-}
+} */
 .container .checkmark4:after {
   left: 0.22rem;
   top: 0rem;
   width: 0.25rem;
   height: 0.5rem;
-  border: solid seagreen;
+  border: solid #576071;
   border-width: 0 0.1rem 0.1rem 0;
   transform: rotate(45deg);
 }
@@ -1416,7 +1451,7 @@ legend {
 .text-option {
   font-size: 0.5rem;
   font-weight: 600;
-  color: #33a474;
+  color: #88619a;
   /* vertical-align: bottom; */
   padding-top: 0.8rem;
   padding-left: 0.3rem;

@@ -16,7 +16,7 @@
       </div>
       <div class="shape">
         <div class="shape1"><div class="text">没有时间限制</div></div>
-        <div class="shape2"><div class="text">无对错之分</div></div>
+        <div class="shape2"><div class="text">答案无对错之分</div></div>
         <div class="shape3">
           <div class="text">无隐私泄漏风险</div>
         </div>
