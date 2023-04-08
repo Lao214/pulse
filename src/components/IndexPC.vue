@@ -16,9 +16,9 @@
       </div>
       <div class="shape">
         <div class="shape1"><div class="text">没有时间限制</div></div>
-        <div class="shape2"><div class="text">请诚实回答</div></div>
+        <div class="shape2"><div class="text">无对错之分</div></div>
         <div class="shape3">
-          <div class="text">请尽量不要选择“中立”的答案</div>
+          <div class="text">无隐私泄漏风险</div>
         </div>
       </div>
     </div>
@@ -1193,7 +1193,7 @@ h1 {
 .tips {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 230px;
   justify-content: center;
   /* background-color: #f9f9f9; */
   background-color: #576cbc;
@@ -1205,7 +1205,7 @@ h1 {
   width: 350px;
   height: 160px;
   margin-right: 50px;
-  background-color: #dcebf0;
+  /* background-color: #dcebf0; */
 }
 .second {
   position: absolute;
@@ -1214,7 +1214,7 @@ h1 {
   width: 350px;
   height: 160px;
   margin-right: 50px;
-  background-color: #ede6da;
+  /* background-color: #ede6da; */
 }
 .third {
   position: absolute;
@@ -1222,12 +1222,12 @@ h1 {
   margin-left: 63%;
   width: 350px;
   height: 160px;
-  background-color: #eee0f5;
+  /* background-color: #eee0f5; */
 }
 img {
-  height: 40%;
-  width: 40%;
-  margin-left: 30%;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
   margin-top: 10px;
 }
 .shape {
@@ -1240,7 +1240,7 @@ img {
   margin-top: -150px;
   height: 80px;
   width: 350px;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .shape2 {
   position: absolute;
@@ -1248,7 +1248,7 @@ img {
   margin-top: -150px;
   height: 80px;
   width: 350px;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .shape3 {
   position: absolute;
@@ -1256,13 +1256,13 @@ img {
   margin-top: -150px;
   height: 80px;
   width: 350px;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .text {
   text-align: center;
   line-height: 80px;
-  font-size: 1.2em;
-  color: #576071;
+  font-size: 3em;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -1280,7 +1280,7 @@ img {
   min-height: 210px;
 }
 legend {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
   color: #576071;
   line-height: 1.8;
@@ -1289,14 +1289,14 @@ legend {
   padding-top: 20px;
 }
 .text-option1 {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
   /* color: #33a474; */
   color: #19376d;
   margin-right: 20px;
 }
 .text-option2 {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
   /* color: #88619a; */
   color: #576cbc;
