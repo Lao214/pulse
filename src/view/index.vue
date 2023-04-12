@@ -25,12 +25,20 @@
             </el-submenu>
             <el-submenu index="1">
               <template slot="title">
-                <i class="el-icon-user"></i>
+                <i class="el-icon-thumb"></i>
                 <span>脉搏管理</span>
               </template>
               <el-menu-item index="/calendar">日历排程</el-menu-item>
               <el-menu-item index="/question">问题管理</el-menu-item>
               <el-menu-item index="/group">规则管理</el-menu-item>
+            </el-submenu>
+            <el-submenu index="3">
+              <template slot="title">
+                <i class="el-icon-data-analysis"></i>
+                <span>数据管理</span>
+              </template>
+              <el-menu-item index="/calendar">数据列表</el-menu-item>
+              <el-menu-item index="/question">数据图表</el-menu-item>
             </el-submenu>
             <!-- <el-submenu index="2" v-if="activityAuth">
               <template slot="title">

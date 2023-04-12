@@ -13,8 +13,8 @@ const request = axios.create({
 	headers: {
 		'Content-Type': "application/json; charset=utf-8"//我们返回的是一个json数据
 	},
-	// baseURL:'https://okr1-api.foxconnedu.com'//api的url
-	baseURL: 'http://localhost:9701' //api的url
+	baseURL:'https://pulse-api.foxconnedu.com/'//api的url
+	// baseURL: 'http://localhost:9701' //api的url
 })
 
 // 添加请求拦截器
