@@ -109,11 +109,12 @@
           </div>
           <div class="text-option2">完全不同意</div>
         </div>
+        <div class="text-option3">中立</div>
       </fieldset>
 
       <fieldset class="question">
         <legend>
-          <span>{{ scheduleDetails.openQuestion }}：</span>
+          <span>{{ scheduleDetails.openQuestion }}</span>
         </legend>
         <div class="textarea-container">
           <textarea
@@ -1300,6 +1301,13 @@ legend {
   font-weight: 600;
   /* color: #88619a; */
   color: #576cbc;
+}
+.text-option3 {
+  font-size: 2em;
+  font-weight: 600;
+  /* color: #88619a; */
+  margin-right: 20px;
+  color: #a5d7e8;
 }
 /*圆形选框*/
 .group_option {

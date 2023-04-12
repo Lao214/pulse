@@ -119,6 +119,7 @@
         </div>
         <div class="captions">
           <div class="text-green">完全同意</div>
+          <div class="text-blue">中立</div>
           <div class="text-purple">完全不同意</div>
         </div>
       </fieldset>
@@ -1247,6 +1248,15 @@ legend {
   font-weight: 600;
   color: #576cbc;
   margin-right: 9px;
+  /* margin-left: 4rem; */
+  /* margin-left: 210px; */
+}
+.text-blue {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #a5d7e8;
+  margin-left: 18px;
   /* margin-left: 4rem; */
   /* margin-left: 210px; */
 }
