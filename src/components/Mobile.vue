@@ -6,12 +6,15 @@
         style="
           font-size: 0.9rem;
           color: #fff;
-          line-height: 2.5rem;
+          line-height: 2.3rem;
           text-align: center;
         "
       >
-        员工学习与发展调查
+        学习成长与发展脉动
       </h1>
+      <h2 style="font-size: 0.7rem; color: #fff; text-align: center">
+        ——倾听自己的声音
+      </h2>
       <section class="tips">
         <div class="first">
           <div class="icon">
@@ -1181,7 +1184,7 @@ export default {
 
 /* 头部样式 */
 .header {
-  height: 8rem;
+  height: 8.7rem;
   background-color: #576cbc;
 }
 .tips {

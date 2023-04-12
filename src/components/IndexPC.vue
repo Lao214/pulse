@@ -3,7 +3,8 @@
     <!--头部-->
     <div class="header">
       <div class="title">
-        <h1>员工学习与发展调查</h1>
+        <h1>学习成长与发展脉动</h1>
+        <h2>——倾听自己的声音</h2>
       </div>
       <div class="tips">
         <div class="first">
@@ -1190,6 +1191,9 @@ h1 {
   font-size: 4em;
   /* margin-top: 0;
   margin-bottom: 0; */
+}
+h2 {
+  font-size: 3em;
 }
 .tips {
   position: relative;
